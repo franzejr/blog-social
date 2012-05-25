@@ -5,8 +5,8 @@ class HomeController < ApplicationController
 	def user
 		@user = User.find_by_id(params[:id])
 	end
-	def list_user
-
+	def users
+		@users = User.all
 	end
 
 	def follow

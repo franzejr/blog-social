@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="span4">
+		<% @users.each do |u| %>
+		<div class="well"><%= get_gravatar(u) +u.email %> </div>
+		<% end %>
+	</div>
+	
+</div>

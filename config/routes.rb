@@ -15,6 +15,8 @@ Blog::Application.routes.draw do
    get "user/:id" =>"home#user", :as => "user"
    get "user/follow/:id" =>"home#follow", :as => "follow"
    get "user/unfollow/:id" =>"home#unfollow", :as => "unfollow"
+   get "users" =>"home#users"
+   delete "post/:id" => "post#destroy", :as => "destroy_post"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
