@@ -5,8 +5,9 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-#gem 'sqlite3'
-gem 'pg'
+gem 'devise'
+gem 'twitter-bootstrap-rails'
+gem 'acts_as_follower'
 
 
 # Gems used only for assets and not required
@@ -31,7 +32,12 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
+group :test, :development do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'sqlite3'
+end
+
+group :production do
+	gem 'pg'
 end

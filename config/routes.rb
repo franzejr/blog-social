@@ -1,4 +1,6 @@
 Blog::Application.routes.draw do
+  devise_for :users
+
   get "post/index"
 
   match "post/show/:id/" => "post#show", :via => :get , :as => "show_post"
@@ -10,6 +12,9 @@ Blog::Application.routes.draw do
   get "post/new", :as => "posts"
   post "post/create", :as => "posts"
 
+   get "user/:id" =>"home#user", :as => "user"
+   get "user/follow/:id" =>"home#follow", :as => "follow"
+   get "user/unfollow/:id" =>"home#unfollow", :as => "unfollow"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -59,7 +64,10 @@ Blog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
+
+  
+
 
   # See how all your routes lay out with "rake routes"
 

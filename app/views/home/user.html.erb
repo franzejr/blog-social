@@ -1,0 +1,31 @@
+<h2>Your Profile</h2>
+<%=get_gravatar(@user) %>
+<h3><%=@user.email%></h3> <%=  %>
+
+<% if user_signed_in?%>
+
+	<% if current_user == @user %>
+		<h3><%= link_to("Edit", edit_user_registration_url)  %></h3>
+	
+	<%else %>
+		<%= follow_or_unfollow(@user) %>
+
+	<% end %>
+<% end %>
+
+<div class="row">
+	<div class="span4">
+		<h3>Following</h3>
+		<% @user.all_following.each do |u| %>
+		 <p><%= link_to(u.email, user_url(u)) %></p>
+		 <% end %>
+	</div>
+	<div class="span4">
+		<h3>Followers</h3>
+		<% @user.followers.each do |u| %>
+		 <p><%= link_to(u.email, user_url(u)) %></p>
+		 <% end %>
+	</div>
+</div>
+
+

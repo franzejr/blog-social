@@ -1,20 +1,6 @@
-<h1>Novo Post </h1>
-
-<%= form_for @post do |f| %>
- <%= f.label :nome %>:
-  <%= f.text_field :nome %><br />
-
-  <%= f.label :conteudo %>:
-  <%= f.text_area :conteudo %><br />
-
- <!--<%= f.collection_select(:categories, Category.all,:id, :name, {:prompt=>true}) %> -->
-
-<% for x in Category.find(:all) %>
-<div>
-  <%= check_box_tag "categories", x.id, @post.categories.include?(x) %>
-  <%= x.name %>
+<%- model_class = @post.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                 :default => "New #{model_class.model_name.human}") %></h1>
 </div>
-<% end %>
-  
-  <%= f.submit%>
-  <% end %>
+<%= render :partial => 'form' %>

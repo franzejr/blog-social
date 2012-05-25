@@ -1,2 +1,18 @@
-<h1><%= @post.nome %></h1>
-<%= @post.conteudo %>
+<%- model_class = @post.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= @post.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:conteudo) %>:</strong></dt>
+  <dd><%= @post.conteudo %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              post_list_url, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              post_edit_path(@post), :class => 'btn' %>
+</div>
