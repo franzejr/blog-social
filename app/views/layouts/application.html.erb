@@ -31,8 +31,8 @@
           <a class="brand" href="<%= root_url %>">Blog</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Posts", "post/list"  %></li>
-              <li><%= link_to "Users", "users"  %></li>
+              <li><%= link_to "Posts", post_list_url  %></li>
+              <li><%= link_to "Users", users_url  %></li>
             </ul>
             <ul class="nav pull-right">
               <% if user_signed_in? %>
