@@ -1,11 +1,20 @@
 <h1>Listagem dos posts</h1>
 <%= link_to("Create a Post", :controller => "post" , :action=> "new") %>
 <ul>
-<% @post.each do |x| %>
-<li>
-	<b><%=  link_to x.nome , show_post_path(x) %></b> <br/>
-	<%= x.conteudo %> 
-</li>
-<% end %>
-
+	<div class="row">
+		<% @post.each do |x| %>
+		<div class="well">
+		<li>
+			<div class="span10">
+				<h3><%=  link_to x.nome , show_post_path(x) %></h3>
+				<p><%= x.conteudo %></p>
+			</div> 
+			<div class="span2">
+				<%= get_gravatar(x.user,48) %>
+			</div>
+		</li>
+		<br/> <br/>
+		</div>
+		<% end %>
+	</div>
 </ul>
