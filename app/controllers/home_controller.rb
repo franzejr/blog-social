@@ -9,6 +9,7 @@ class HomeController < ApplicationController
 		@users = User.all
 	end
 
+
 	def follow
 		@user = User.find_by_id(params[:id])
 		if !current_user.following?(@user)
