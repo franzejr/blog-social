@@ -14,7 +14,7 @@ class PostController < ApplicationController
     logger.info("User: #{@post.user_id} , Current User: #{current_user.id}")
 
   	@post.save()
-    logger.info("User: #{@post.user_id} , Current User: #{current_user.id}")
+    logger.info("User: #{@post.user_id} , : #{current_user.id}")
   	redirect_to show_post_path(@post)
   end
 

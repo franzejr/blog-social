@@ -36,6 +36,9 @@ group :test, :development do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'sqlite3'
+	gem 'simplecov', :require => false
+	gem 'rspec-rails'
+	gem 'factory_girl_rails'
 end
 
 group :production do
